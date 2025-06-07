@@ -1,7 +1,8 @@
 import { IPlaceCard } from '../types';
 
-export const places: IPlaceCard[] = [
+export const favorites: IPlaceCard[] = [
   {
+    id: 1,
     isPremium: true,
     imageSrc: 'img/apartment-01.jpg',
     price: 120,
@@ -10,6 +11,7 @@ export const places: IPlaceCard[] = [
     type: 'Apartment',
   },
   {
+    id: 2,
     isBookmarked: true,
     imageSrc: 'img/room.jpg',
     price: 80,
@@ -18,6 +20,7 @@ export const places: IPlaceCard[] = [
     type: 'Room',
   },
   {
+    id: 3,
     imageSrc: 'img/apartment-02.jpg',
     price: 132,
     rating: 4,
@@ -25,6 +28,7 @@ export const places: IPlaceCard[] = [
     type: 'Apartment',
   },
   {
+    id: 4,
     isPremium: true,
     imageSrc: 'img/apartment-03.jpg',
     price: 180,
@@ -33,6 +37,7 @@ export const places: IPlaceCard[] = [
     type: 'Apartment',
   },
   {
+    id: 5,
     isBookmarked: true,
     imageSrc: 'img/room.jpg',
     price: 80,

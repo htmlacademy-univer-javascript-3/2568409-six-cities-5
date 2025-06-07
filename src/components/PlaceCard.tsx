@@ -1,34 +1,41 @@
 import React from 'react';
-import { IPlaceCard } from '../types';
+import { IPlaceCardProps } from '../types';
+import { Link } from 'react-router-dom';
 
-export const PlaceCard: React.FC<IPlaceCard> = ({
-  isPremium,
-  isBookmarked,
-  imageSrc,
-  imageAlt,
-  price,
-  rating,
-  name,
-  type
+export const PlaceCard: React.FC<IPlaceCardProps> = ({
+  place,
+  isFullSize,
+  onMouseOver,
+  onMouseLeave
 }) => (
-  <article className="cities__card place-card">
-    {isPremium && (
+  <article
+    className={`${isFullSize ? 'cities__card' : 'favorites__card'} place-card`}
+    onMouseOver={onMouseOver}
+    onMouseLeave={onMouseLeave}
+  >
+    {place.isPremium && (
       <div className="place-card__mark">
         <span>Premium</span>
       </div>
     )}
-    <div className="cities__image-wrapper place-card__image-wrapper">
+    <div className={`${isFullSize ? 'cities__image-wrapper' : 'favorites__image-wrapper'} place-card__image-wrapper`}>
       <a href="#">
-        <img className="place-card__image" src={imageSrc} width="260" height="200" alt={imageAlt} />
+        <img
+          className="place-card__image"
+          src={place.imageSrc}
+          width={isFullSize ? '260' : '150'}
+          height={isFullSize ? '200' : '110'}
+          alt={place.imageAlt}
+        />
       </a>
     </div>
-    <div className="place-card__info">
+    <div className={`${isFullSize ? null : 'favorites__card-info'} place-card__info`}>
       <div className="place-card__price-wrapper">
         <div className="place-card__price">
-          <b className="place-card__price-value">&euro;{price}</b>
+          <b className="place-card__price-value">&euro;{place.price}</b>
           <span className="place-card__price-text">&#47;&nbsp;night</span>
         </div>
-        <button className={`place-card__bookmark-button ${isBookmarked ? 'place-card__bookmark-button--active' : ''} button`} type="button">
+        <button className={`place-card__bookmark-button ${place.isBookmarked ? 'place-card__bookmark-button--active' : ''} button`} type="button">
           <svg className="place-card__bookmark-icon" width="18" height="19">
             <use xlinkHref="#icon-bookmark" />
           </svg>
@@ -37,14 +44,14 @@ export const PlaceCard: React.FC<IPlaceCard> = ({
       </div>
       <div className="place-card__rating rating">
         <div className="place-card__stars rating__stars">
-          <span style={{ width: `${rating * 20}%` }}></span>
+          <span style={{ width: `${place.rating * 20}%` }}></span>
           <span className="visually-hidden">Rating</span>
         </div>
       </div>
       <h2 className="place-card__name">
-        <a href="#">{name}</a>
+        <Link to={`/offer/${place.id}`}>{place.name}</Link>
       </h2>
-      <p className="place-card__type">{type}</p>
+      <p className="place-card__type">{place.type}</p>
     </div>
   </article>
 );
