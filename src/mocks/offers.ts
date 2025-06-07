@@ -9,6 +9,10 @@ export const offers: IPlaceCard[] = [
     rating: 4,
     name: 'Beautiful &amp; luxurious apartment at great location',
     type: 'Apartment',
+    location: {
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198
+    },
   },
   {
     id: 2,
@@ -18,6 +22,10 @@ export const offers: IPlaceCard[] = [
     rating: 4,
     name: 'Wood and stone place',
     type: 'Room',
+    location: {
+      latitude: 52.3609553943508,
+      longitude: 4.85309666406198
+    },
   },
   {
     id: 3,
@@ -26,6 +34,10 @@ export const offers: IPlaceCard[] = [
     rating: 4,
     name: 'Canal View Prinsengracht',
     type: 'Apartment',
+    location: {
+      latitude: 52.3909553943508,
+      longitude: 4.929309666406198
+    },
   },
   {
     id: 4,
@@ -35,6 +47,10 @@ export const offers: IPlaceCard[] = [
     rating: 4,
     name: 'Nice, cozy, warm big bed apartment',
     type: 'Apartment',
+    location: {
+      latitude: 52.3809553943508,
+      longitude: 4.939309666406198
+    },
   },
   {
     id: 5,
@@ -44,5 +60,9 @@ export const offers: IPlaceCard[] = [
     rating: 4,
     name: 'Wood and stone place',
     type: 'Room',
+    location: {
+      latitude: 52.3609553943508,
+      longitude: 4.85309666406198
+    },
   },
 ];
