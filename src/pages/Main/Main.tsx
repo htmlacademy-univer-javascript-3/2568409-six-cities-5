@@ -1,19 +1,19 @@
 import React from 'react';
-import {PlaceCard} from '../../components/PlaceCard';
-import {IPlaceCard} from '../../types';
+import { OfferList } from '../../components/OfferList.tsx';
+import { IPlaceCard } from '../../types';
 
 type MainProps = {
   places: IPlaceCard[];
 };
 
-export const Main: React.FC<MainProps> = ({places}) => (
+export const Main: React.FC<MainProps> = ({ places }) => (
   <div className="page page--gray page--main">
     <header className="header">
       <div className="container">
         <div className="header__wrapper">
           <div className="header__left">
             <a className="header__logo-link header__logo-link--active">
-              <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41"/>
+              <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41" />
             </a>
           </div>
           <nav className="header__nav">
@@ -83,9 +83,9 @@ export const Main: React.FC<MainProps> = ({places}) => (
             <form className="places__sorting" action="#" method="get">
               <span className="places__sorting-caption">Sort by</span>
               <span className="places__sorting-type" tabIndex={0}>
-                  Popular
+                Popular
                 <svg className="places__sorting-arrow" width="7" height="4">
-                  <use xlinkHref="#icon-arrow-select"/>
+                  <use xlinkHref="#icon-arrow-select" />
                 </svg>
               </span>
               <ul className="places__options places__options--custom places__options--opened">
@@ -95,9 +95,7 @@ export const Main: React.FC<MainProps> = ({places}) => (
                 <li className="places__option" tabIndex={0}>Top rated first</li>
               </ul>
             </form>
-            <div className="cities__places-list places__list tabs__content">
-              { places.map((place) => (<PlaceCard key={place.name} {...place} />)) }
-            </div>
+            <OfferList offers={places} />
           </section>
           <div className="cities__right-section">
             <section className="cities__map map"></section>

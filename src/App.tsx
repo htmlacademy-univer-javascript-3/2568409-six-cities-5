@@ -17,7 +17,7 @@ export const App: React.FC<AppProps> = ({ places }) => (
     <Routes>
       <Route path="/" element={<Main places={places} />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/favorites" element={<CheckAuth element={<Favorites />} isAuthorized={false}></CheckAuth>} />
+      <Route path="/favorites" element={<CheckAuth element={<Favorites places={places} />} isAuthorized={false}></CheckAuth>} />
       <Route path="/offer/:id" element={<Offer />} />
       <Route path="/*" element={<NotFound />} />
     </Routes>
