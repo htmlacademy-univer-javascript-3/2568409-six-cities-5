@@ -53,6 +53,7 @@ export interface ICity {
 export interface IPoint {
     latitude: number;
     longitude: number;
+    zoom?: number;
 }
 
 export type PlaceType = 'Apartment' | 'Room';
@@ -87,6 +88,14 @@ export enum PlaceClassTypes {
     NearPlaces = 'near-places',
     Favorites = 'favorites'
 }
+
+
+export enum SortName {
+    popular = 'popular',
+    lowToHigh = 'lowToHigh',
+    highToLow = 'highToLow',
+    topRated = 'topRated',
+  }
 
 type User = {
     name: string;
