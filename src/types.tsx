@@ -10,6 +10,7 @@ export interface IPlaceCard {
     price: number;
     rating: 1 | 2 | 3 | 4 | 5;
     type: PlaceType;
+    location: IPoint;
 }
 
 export interface IPlaceCardProps {
@@ -26,6 +27,7 @@ export interface IReviewRatingProps {
 
 export interface IOfferListProps {
     offers: IPlaceCard[];
+    onListItemHover: (listItemName: number | null) => void;
 }
 
 export interface IReviewFormState {
@@ -37,4 +39,22 @@ export interface IFavoritesProps {
     places: IPlaceCard[];
 }
 
+export type CityName = 'Paris' | 'Cologne' | 'Brussels' | 'Amsterdam' | 'Hamburg' | 'Dusseldorf';
+
+export interface ICity {
+    name: CityName;
+    location: IPoint;
+}
+
+export interface IPoint {
+    latitude: number;
+    longitude: number;
+}
+
 export type PlaceType = 'Apartment' | 'Room';
+
+export interface IMapProps {
+    city: ICity;
+    places: IPlaceCard[];
+    selectedPlace: IPlaceCard | undefined;
+}
