@@ -1,6 +1,7 @@
 import { useMemo,useState } from 'react';
 import { OfferList } from '../../components/OfferList.tsx';
-import { IPlaceCard, PlaceClassTypes, SortName } from '../../types';
+import { IPlaceCard, PlaceClassTypes, SortName } from '../../types.ts';
+import { LoadingStatus } from '../../constant.ts';
 import { Map } from '../../components/Map.tsx';
 import { CityList } from '../../components/CityList.tsx';
 import { useAppSelector } from '../../store/hooks.ts';
@@ -11,7 +12,7 @@ import {Header} from '../../components/Header.tsx';
 export const Main = () => {
 
   const [selectedPlace, setSelectedPlace] = useState<IPlaceCard | undefined>(undefined);
-  const [currentFilter, setCurrentFilter] = useState<SortName>(SortName.popular);
+  const [currentFilter, setCurrentFilter] = useState<SortName>(SortName.Popular);
 
   const currentCity = useAppSelector((state) => state.city);
   const currentOffers = useAppSelector((state) => state.offers);
@@ -31,11 +32,11 @@ export const Main = () => {
   const sortedOffers = useMemo(() => {
     const offers = currentOffers.filter((offer) => offer.city.name === currentCity.name);
     switch (currentFilter) {
-      case SortName.topRated:
+      case SortName.TopRated:
         return offers.toSorted((a, b) => b.rating - a.rating);
-      case SortName.highToLow:
+      case SortName.HighToLow:
         return offers.toSorted((a, b) => b.price - a.price);
-      case SortName.lowToHigh:
+      case SortName.LowToHigh:
         return offers.toSorted((a, b) => a.price - b.price);
       default:
         return offers;
@@ -60,7 +61,7 @@ export const Main = () => {
               <h2 className="visually-hidden">Places</h2>
               <b className="places__found">{sortedOffers?.length} places to stay in {currentCity.name}</b>
               <SortFilter currentFilter={currentFilter} onFilterChange={onFilterChange}/>
-              {isLoading
+              {isLoading !== LoadingStatus.Success
                 ? <Spinner/>
                 : <OfferList offers={sortedOffers} onListItemHover={handleListItemHover} listType={PlaceClassTypes.Cities}/>}
             </section>

@@ -1,13 +1,28 @@
 import {CityName, ICity} from './types.ts';
 
 export enum Actions {
-  CITY = 'City',
-  OFFERS = 'Offers',
-  OFFER = 'Offer',
-  FAVORITES = 'Favorites',
-  COMMENTS = 'Comments',
-  USER = 'User'
+  City = 'City',
+  Offers = 'Offers',
+  Offer = 'Offer',
+  Favorite = 'Favorite',
+  Comment = 'Comment',
+  User = 'User'
 }
+
+export enum LoadingStatus {
+  Init = 'Init',
+  Pending = 'Pending',
+  Success = 'Success',
+  Failure = 'Failure'
+}
+
+export const COMMENT_STARS = [
+  { rating: 5, title: 'perfect' },
+  { rating: 4, title: 'good' },
+  { rating: 3, title: 'not bad' },
+  { rating: 2, title: 'badly' },
+  { rating: 1, title: 'terribly' },
+];
 
 export const CITIES: Record<CityName, ICity> = {
   Paris: {
@@ -64,16 +79,16 @@ export const CITIES: Record<CityName, ICity> = {
 export const API_ROUTES = {
   OFFERS: {
     ALL: '/offers',
-    EXACT: '/offers/{offerId}',
-    NEARBY: '/offers/{offerId}/nearby',
+    EXACT: (offerId: string) => `/offers/${offerId}`,
+    NEARBY: (offerId: string) => `/offers/${offerId}/nearby`,
   },
   FAVORITE: {
     GET: '/favorite',
-    SET_STATUS: '/favorite/{offerId}/{status}',
+    SET_STATUS: (offerId: string, status: boolean) => `/favorite/${offerId}/${status}`,
   },
   COMMENTS: {
-    GET: '/comments/{offerId}',
-    POST: '/comments/{offerId}',
+    GET: (offerId: string) => `/comments/${offerId}`,
+    POST: (offerId: string) => `/comments/${offerId}`,
   },
   USER: {
     VALIDATE: '/login',
