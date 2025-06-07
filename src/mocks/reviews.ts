@@ -1,6 +1,6 @@
 import {IReview} from '../types.ts';
 
-export const REVIEWS: IReview[] = [
+export const review: IReview[] = [
   {
     id: 1,
     date: new Date('2019-05-08T14:13:56.569Z'),

@@ -1,4 +1,5 @@
 import { IPlaceCard } from '../types';
+import {cities} from '../mocks/cities';
 
 export const favorites: IPlaceCard[] = [
   {
@@ -13,6 +14,7 @@ export const favorites: IPlaceCard[] = [
       latitude: 52.3609553943508,
       longitude: 4.85309666406198
     },
+    city: cities.Amsterdam,
   },
   {
     id: 2,
@@ -26,6 +28,7 @@ export const favorites: IPlaceCard[] = [
       latitude: 52.3609553943508,
       longitude: 4.85309666406198
     },
+    city: cities.Amsterdam,
   },
   {
     id: 3,
@@ -38,6 +41,7 @@ export const favorites: IPlaceCard[] = [
       latitude: 52.3609553943508,
       longitude: 4.85309666406198
     },
+    city: cities.Amsterdam,
   },
   {
     id: 4,
@@ -51,6 +55,7 @@ export const favorites: IPlaceCard[] = [
       latitude: 52.3809553943508,
       longitude: 4.939309666406198
     },
+    city: cities.Amsterdam,
   },
   {
     id: 5,
@@ -64,5 +69,6 @@ export const favorites: IPlaceCard[] = [
       latitude: 52.3609553943508,
       longitude: 4.85309666406198
     },
+    city: cities.Amsterdam,
   },
 ];

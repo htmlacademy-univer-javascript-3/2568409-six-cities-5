@@ -13,6 +13,7 @@ export interface IPlaceCard {
     rating: TRating;
     type: PlaceType;
     location: IPoint;
+    city: ICity;
 }
 
 export interface IPlaceCardProps {

@@ -1,4 +1,5 @@
 import { IPlaceCard } from '../types';
+import {cities} from '../mocks/cities';
 
 export const offers: IPlaceCard[] = [
   {
@@ -10,9 +11,10 @@ export const offers: IPlaceCard[] = [
     name: 'Beautiful &amp; luxurious apartment at great location',
     type: 'Apartment',
     location: {
-      latitude: 52.3909553943508,
-      longitude: 4.85309666406198
+      latitude: 48.8520,
+      longitude: 2.3332
     },
+    city: cities.Paris,
   },
   {
     id: 2,
@@ -23,9 +25,10 @@ export const offers: IPlaceCard[] = [
     name: 'Wood and stone place',
     type: 'Room',
     location: {
-      latitude: 52.3609553943508,
-      longitude: 4.85309666406198
+      latitude: 48.8566,
+      longitude: 2.3522
     },
+    city: cities.Paris,
   },
   {
     id: 3,
@@ -38,6 +41,7 @@ export const offers: IPlaceCard[] = [
       latitude: 52.3909553943508,
       longitude: 4.929309666406198
     },
+    city: cities.Amsterdam,
   },
   {
     id: 4,
@@ -51,6 +55,7 @@ export const offers: IPlaceCard[] = [
       latitude: 52.3809553943508,
       longitude: 4.939309666406198
     },
+    city: cities.Amsterdam,
   },
   {
     id: 5,
@@ -64,5 +69,6 @@ export const offers: IPlaceCard[] = [
       latitude: 52.3609553943508,
       longitude: 4.85309666406198
     },
+    city: cities.Paris,
   },
 ];
