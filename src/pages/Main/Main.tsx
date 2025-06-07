@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { OfferList } from '../../components/OfferList.tsx';
-import { IPlaceCard } from '../../types';
+import { IPlaceCard, PlaceClassTypes } from '../../types';
 import {Map} from '../../components/Map.tsx';
 import {cities} from '../../mocks/cities.ts';
 
@@ -106,7 +106,7 @@ export const Main: React.FC<MainProps> = ({places}) => {
                   <li className="places__option" tabIndex={0}>Top rated first</li>
                 </ul>
               </form>
-              <OfferList offers={places} onListItemHover={handleListItemHover} />
+              <OfferList offers={places} onListItemHover={handleListItemHover} listType={PlaceClassTypes.Cities}/>
             </section>
             <div className="cities__right-section">
               <section className="cities__map map">

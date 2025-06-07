@@ -1,15 +1,16 @@
 import React from 'react';
-import { IPlaceCardProps } from '../types';
+import { IPlaceCardProps, OBJECT_CLASS_TYPES, PlaceClassTypes } from '../types';
 import { Link } from 'react-router-dom';
+import { Rating } from './Rating.tsx';
 
 export const PlaceCard: React.FC<IPlaceCardProps> = ({
   place,
-  isFullSize,
+  placeCardType,
   onMouseOver,
   onMouseLeave
 }) => (
   <article
-    className={`${isFullSize ? 'cities__card' : 'favorites__card'} place-card`}
+    className={`${placeCardType}__card place-card`}
     onMouseOver={onMouseOver}
     onMouseLeave={onMouseLeave}
   >
@@ -18,18 +19,18 @@ export const PlaceCard: React.FC<IPlaceCardProps> = ({
         <span>Premium</span>
       </div>
     )}
-    <div className={`${isFullSize ? 'cities__image-wrapper' : 'favorites__image-wrapper'} place-card__image-wrapper`}>
+    <div className={`${placeCardType}__image-wrapper place-card__image-wrapper`}>
       <a href="#">
         <img
           className="place-card__image"
           src={place.imageSrc}
-          width={isFullSize ? '260' : '150'}
-          height={isFullSize ? '200' : '110'}
-          alt={place.imageAlt}
+          width={placeCardType !== PlaceClassTypes.Favorites ? '260' : '150'}
+          height={placeCardType !== PlaceClassTypes.Favorites ? '200' : '110'}
+          alt='Alt'
         />
       </a>
     </div>
-    <div className={`${isFullSize ? null : 'favorites__card-info'} place-card__info`}>
+    <div className={`${placeCardType === PlaceClassTypes.Favorites ? 'favorites__card-info' : null} place-card__info`}>
       <div className="place-card__price-wrapper">
         <div className="place-card__price">
           <b className="place-card__price-value">&euro;{place.price}</b>
@@ -42,12 +43,7 @@ export const PlaceCard: React.FC<IPlaceCardProps> = ({
           <span className="visually-hidden">To bookmarks</span>
         </button>
       </div>
-      <div className="place-card__rating rating">
-        <div className="place-card__stars rating__stars">
-          <span style={{ width: `${place.rating * 20}%` }}></span>
-          <span className="visually-hidden">Rating</span>
-        </div>
-      </div>
+      <Rating rating={place.rating} objectType={OBJECT_CLASS_TYPES.Place} />
       <h2 className="place-card__name">
         <Link to={`/offer/${place.id}`}>{place.name}</Link>
       </h2>

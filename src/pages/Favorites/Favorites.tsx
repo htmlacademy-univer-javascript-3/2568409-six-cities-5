@@ -1,4 +1,4 @@
-import { IFavoritesProps } from '../../types.ts';
+import { IFavoritesProps, PlaceClassTypes } from '../../types.ts';
 import React from 'react';
 import { PlaceCard } from '../../components/PlaceCard.tsx';
 
@@ -47,8 +47,8 @@ export const Favorites: React.FC<IFavoritesProps> = ({ places }) => (
                 </div>
               </div>
               <div className="favorites__places">
-                <PlaceCard place={places[0]} isFullSize={false} />
-                <PlaceCard place={places[1]} isFullSize={false} />
+                <PlaceCard place={places[0]} placeCardType={PlaceClassTypes.Favorites} />
+                <PlaceCard place={places[1]} placeCardType={PlaceClassTypes.Favorites} />
               </div>
             </li>
 
@@ -61,7 +61,7 @@ export const Favorites: React.FC<IFavoritesProps> = ({ places }) => (
                 </div>
               </div>
               <div className="favorites__places">
-                <PlaceCard place={places[2]} isFullSize={false} />
+                <PlaceCard place={places[2]} placeCardType={PlaceClassTypes.Favorites} />
               </div>
             </li>
           </ul>
