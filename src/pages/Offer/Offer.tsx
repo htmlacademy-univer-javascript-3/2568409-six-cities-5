@@ -1,4 +1,4 @@
-import {ReviewForm} from '../../components/ReviewForm.tsx';
+import {ReviewForm} from '../../components/ReviewList/ReviewForm.tsx';
 
 export const Offer = () => (
   <div className="page">

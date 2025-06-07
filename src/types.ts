@@ -1,5 +1,7 @@
 import { MouseEventHandler } from 'react';
 
+export type TRating = 1 | 2 | 3 | 4 | 5;
+
 export interface IPlaceCard {
     id: number;
     name: string;
@@ -8,14 +10,14 @@ export interface IPlaceCard {
     isPremium?: boolean;
     isBookmarked?: boolean;
     price: number;
-    rating: 1 | 2 | 3 | 4 | 5;
+    rating: TRating;
     type: PlaceType;
     location: IPoint;
 }
 
 export interface IPlaceCardProps {
     place: IPlaceCard;
-    isFullSize: boolean;
+    placeCardType: PlaceClassTypes;
     onMouseOver?: MouseEventHandler;
     onMouseLeave?: MouseEventHandler;
 }
@@ -28,6 +30,7 @@ export interface IReviewRatingProps {
 export interface IOfferListProps {
     offers: IPlaceCard[];
     onListItemHover: (listItemName: number | null) => void;
+    listType: PlaceClassTypes;
 }
 
 export interface IReviewFormState {
@@ -57,4 +60,43 @@ export interface IMapProps {
     city: ICity;
     places: IPlaceCard[];
     selectedPlace: IPlaceCard | undefined;
+}
+
+export interface IRatingProps {
+    rating: TRating;
+    objectType: string;
+}
+
+export interface IReviewsListProps {
+    reviews: IReview[];
+}
+
+export interface IReviewItemProps {
+    review: IReview;
+}
+
+export enum OBJECT_CLASS_TYPES {
+    Place = 'place-card',
+    Reviews = 'reviews',
+    Offer = 'offer'
+}
+
+export enum PlaceClassTypes {
+    Cities = 'cities',
+    NearPlaces = 'near-places',
+    Favorites = 'favorites'
+}
+
+type User = {
+    name: string;
+    avatarUrl: string;
+    isPro: boolean;
+}
+
+export interface IReview {
+    id: number;
+    date: Date;
+    user: User;
+    comment: string;
+    rating: TRating;
 }
