@@ -1,17 +1,10 @@
 import React from 'react';
 import { IReviewRatingProps } from '../types';
-
-const commentStars = [
-  { rating: 5, title: 'perfect' },
-  { rating: 4, title: 'good' },
-  { rating: 3, title: 'not bad' },
-  { rating: 2, title: 'badly' },
-  { rating: 1, title: 'terribly' },
-];
+import {COMMENT_STARS} from '../constant.ts';
 
 export const ReviewRate: React.FC<IReviewRatingProps> = ({value, onChange}) => (
   <div className="reviews__rating-form form__rating">
-    {commentStars.map(({rating, title}) => (
+    {COMMENT_STARS.map(({rating, title}) => (
       <React.Fragment key={title}>
         <input
           className="form__rating-input visually-hidden"

@@ -5,7 +5,7 @@ export enum AppRoute {
     Login = '/login',
     Favorites = '/favorites',
     Offer = '/offer/:id'
-  }
+}
 
 export interface IPlaceCard {
     id: string;
@@ -18,6 +18,21 @@ export interface IPlaceCard {
     type: PlaceType;
     location: IPoint;
     city: ICity;
+}
+
+export type IPlaceCardFull = IPlaceCard & {
+    description: string;
+    bedrooms: number;
+    goods: string[];
+    host: IHost;
+    images: string[];
+    maxAdults: number;
+};
+
+export type IHost = {
+    name: string;
+    avatarUrl: string;
+    isPro: boolean;
 }
 
 export interface IPlaceCardProps {
@@ -70,7 +85,8 @@ export interface IMapProps {
 
 export interface IRatingProps {
     rating: number;
-    objectType: string;
+    objectType: ObjectClassTypes;
+    isFullMode?: boolean;
 }
 
 export interface IReviewsListProps {
@@ -81,7 +97,7 @@ export interface IReviewItemProps {
     review: IReview;
 }
 
-export enum OBJECT_CLASS_TYPES {
+export enum ObjectClassTypes {
     Place = 'place-card',
     Reviews = 'reviews',
     Offer = 'offer'
@@ -90,15 +106,15 @@ export enum OBJECT_CLASS_TYPES {
 export enum PlaceClassTypes {
     Cities = 'cities',
     NearPlaces = 'near-places',
-    Favorites = 'favorites'
+    Favorites = 'favorite'
 }
 
 
 export enum SortName {
-    popular = 'popular',
-    lowToHigh = 'lowToHigh',
-    highToLow = 'highToLow',
-    topRated = 'topRated',
+    Popular = 'Popular',
+    LowToHigh = 'Price: low to high',
+    HighToLow = 'Price: high to low',
+    TopRated = 'Top rated first',
 }
 
 type User = {

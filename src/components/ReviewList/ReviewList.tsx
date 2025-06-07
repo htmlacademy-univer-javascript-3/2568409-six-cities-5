@@ -1,6 +1,5 @@
 import React from 'react';
 import {IReviewsListProps} from '../../types.ts';
-import {ReviewForm} from './ReviewForm.tsx';
 import {ReviewItem} from './ReviewItem.tsx';
 
 export const ReviewsList: React.FC<IReviewsListProps> = ({reviews}): JSX.Element => (
@@ -13,6 +12,5 @@ export const ReviewsList: React.FC<IReviewsListProps> = ({reviews}): JSX.Element
         <ReviewItem key={review.id} review={review}/>
       ))}
     </ul>
-    <ReviewForm/>
   </section>
 );

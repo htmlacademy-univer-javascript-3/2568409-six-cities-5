@@ -1,5 +1,5 @@
 import React from 'react';
-import { IPlaceCardProps, OBJECT_CLASS_TYPES, PlaceClassTypes } from '../types';
+import { IPlaceCardProps, ObjectClassTypes, PlaceClassTypes } from '../types';
 import { Link } from 'react-router-dom';
 import { Rating } from './Rating.tsx';
 
@@ -20,7 +20,7 @@ export const PlaceCard: React.FC<IPlaceCardProps> = ({
       </div>
     )}
     <div className={`${placeCardType}__image-wrapper place-card__image-wrapper`}>
-      <a href="#">
+      <Link to={`/offer/${place.id}`}>
         <img
           className="place-card__image"
           src={place.previewImage}
@@ -28,7 +28,7 @@ export const PlaceCard: React.FC<IPlaceCardProps> = ({
           height={placeCardType !== PlaceClassTypes.Favorites ? '200' : '110'}
           alt='Alt'
         />
-      </a>
+      </Link>
     </div>
     <div className={`${placeCardType === PlaceClassTypes.Favorites ? 'favorites__card-info' : null} place-card__info`}>
       <div className="place-card__price-wrapper">
@@ -43,7 +43,7 @@ export const PlaceCard: React.FC<IPlaceCardProps> = ({
           <span className="visually-hidden">To bookmarks</span>
         </button>
       </div>
-      <Rating rating={place.rating} objectType={OBJECT_CLASS_TYPES.Place} />
+      <Rating rating={place.rating} objectType={ObjectClassTypes.Place} />
       <h2 className="place-card__name">
         <Link to={`/offer/${place.id}`}>{place.title}</Link>
       </h2>

@@ -1,22 +1,39 @@
 import {createReducer} from '@reduxjs/toolkit';
-import {changeCity, fillOffers, setUserData, setOffersLoadingStatus, setAuthorizationStatus} from './action.ts';
-import {CITIES} from '../constant.ts';
-import {ICity, IPlaceCard, IUserFull} from '../types.ts';
+import {
+  changeCity, clearComments, clearOffer, clearNearbyOffers, clearUserData,
+  fillOffers,
+  setAuthorizationStatus,
+  setComments, setCommentsLoadingStatus, setNearbyOffers,
+  setOffer,
+  setOfferLoadingStatus,
+  setOffersLoadingStatus,
+  setUserData
+} from './action.ts';
+import {CITIES, LoadingStatus} from '../constant.ts';
+import {ICity, IPlaceCard, IPlaceCardFull, IReview, IUserFull} from '../types.ts';
 
 type InitialState = {
   authorizationStatus: boolean;
-  userData: IUserFull | null;
+  userData?: IUserFull;
   city: ICity;
   offers: IPlaceCard[];
-  isOffersDataLoading: boolean;
+  offer?: IPlaceCardFull;
+  nearbyOffers: IPlaceCard[];
+  comments: IReview[];
+  isOffersDataLoading: LoadingStatus;
+  isOfferDataLoading: LoadingStatus;
+  isCommentsDataLoading: LoadingStatus;
 };
 
 const initialState:InitialState = {
   authorizationStatus: false,
-  userData: null,
   city: CITIES.Paris,
   offers: [],
-  isOffersDataLoading: false
+  nearbyOffers: [],
+  comments: [],
+  isOffersDataLoading: LoadingStatus.Init,
+  isOfferDataLoading: LoadingStatus.Init,
+  isCommentsDataLoading: LoadingStatus.Init
 };
 
 const reducer = createReducer(initialState, (builder) => {
@@ -27,14 +44,48 @@ const reducer = createReducer(initialState, (builder) => {
     .addCase(fillOffers, (state, action) => {
       state.offers = action.payload;
     })
+    .addCase(clearNearbyOffers, (state) => {
+      state.nearbyOffers = [];
+      state.isOffersDataLoading = LoadingStatus.Init;
+    })
     .addCase(setOffersLoadingStatus, (state, action) => {
       state.isOffersDataLoading = action.payload;
     })
+
+    .addCase(setNearbyOffers, (state, action) => {
+      state.nearbyOffers = action.payload;
+    })
+
+    .addCase(setOffer, (state, action) => {
+      state.offer = action.payload;
+    })
+    .addCase(clearOffer, (state) => {
+      state.offer = undefined;
+      state.isOfferDataLoading = LoadingStatus.Init;
+    })
+    .addCase(setOfferLoadingStatus, (state, action) => {
+      state.isOfferDataLoading = action.payload;
+    })
+
     .addCase(setAuthorizationStatus, (state, action) => {
       state.authorizationStatus = action.payload;
     })
     .addCase(setUserData, (state, action) => {
       state.userData = action.payload;
+    })
+    .addCase(clearUserData, (state) => {
+      state.userData = undefined;
+    })
+
+    .addCase(setComments, (state, action) => {
+      state.comments = action.payload;
+    })
+    .addCase(clearComments, (state) => {
+      state.comments = [];
+      state.isCommentsDataLoading = LoadingStatus.Init;
+    })
+    .addCase(setCommentsLoadingStatus, (state, action) => {
+      state.isCommentsDataLoading = action.payload;
     });
 });
 

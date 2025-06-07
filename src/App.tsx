@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Main } from './pages/Main/Main';
-import {PrivateRoute} from './pages/PrivateRoute/CheckAuth.tsx';
+import {PrivateRoute} from './pages/PrivateRoute/PrivateRoute.tsx';
 import { Favorites } from './pages/Favorites/Favorites';
 import { Offer } from './pages/Offer/Offer';
 import { NotFound } from './pages/Errors/NotFound';
