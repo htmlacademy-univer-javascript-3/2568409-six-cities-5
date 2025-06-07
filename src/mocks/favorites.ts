@@ -1,74 +1,50 @@
-import { IPlaceCard } from '../types';
-import {cities} from '../mocks/cities';
+import {IPlaceCard} from '../types.ts';
+import {CITIES} from '../constant.ts';
 
 export const favorites: IPlaceCard[] = [
   {
-    id: 1,
+    id: '1',
+    isFavorite: true,
     isPremium: true,
-    imageSrc: 'img/apartment-01.jpg',
-    price: 120,
-    rating: 4,
-    name: 'Beautiful &amp; luxurious apartment at great location',
-    type: 'Apartment',
-    location: {
-      latitude: 52.3609553943508,
-      longitude: 4.85309666406198
-    },
-    city: cities.Amsterdam,
-  },
-  {
-    id: 2,
-    isBookmarked: true,
-    imageSrc: 'img/room.jpg',
-    price: 80,
-    rating: 4,
-    name: 'Wood and stone place',
-    type: 'Room',
-    location: {
-      latitude: 52.3609553943508,
-      longitude: 4.85309666406198
-    },
-    city: cities.Amsterdam,
-  },
-  {
-    id: 3,
-    imageSrc: 'img/apartment-02.jpg',
-    price: 132,
-    rating: 4,
-    name: 'Canal View Prinsengracht',
-    type: 'Apartment',
-    location: {
-      latitude: 52.3609553943508,
-      longitude: 4.85309666406198
-    },
-    city: cities.Amsterdam,
-  },
-  {
-    id: 4,
-    isPremium: true,
-    imageSrc: 'img/apartment-03.jpg',
+    previewImage: 'img/apartment-small-03.jpg',
     price: 180,
     rating: 4,
-    name: 'Nice, cozy, warm big bed apartment',
-    type: 'Apartment',
+    title: 'Nice, cozy, warm big bed apartment',
+    type: 'apartment',
     location: {
       latitude: 52.3809553943508,
       longitude: 4.939309666406198
     },
-    city: cities.Amsterdam,
+    city: CITIES.Amsterdam
   },
   {
-    id: 5,
-    isBookmarked: true,
-    imageSrc: 'img/room.jpg',
+    id: '2',
+    isFavorite: true,
+    isPremium: false,
+    previewImage: 'img/room-small.jpg',
     price: 80,
     rating: 4,
-    name: 'Wood and stone place',
-    type: 'Room',
+    title: 'Wood and stone place',
+    type: 'room',
     location: {
       latitude: 52.3609553943508,
       longitude: 4.85309666406198
     },
-    city: cities.Amsterdam,
+    city: CITIES.Amsterdam
   },
+  {
+    id: '3',
+    isFavorite: true,
+    isPremium: false,
+    previewImage: 'img/apartment-02.jpg',
+    price: 180,
+    rating: 5,
+    title: 'White castle',
+    type: 'apartment',
+    location: {
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198
+    },
+    city: CITIES.Amsterdam
+  }
 ];

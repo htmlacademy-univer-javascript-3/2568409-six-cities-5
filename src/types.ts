@@ -1,16 +1,13 @@
 import { MouseEventHandler } from 'react';
 
-export type TRating = 1 | 2 | 3 | 4 | 5;
-
 export interface IPlaceCard {
-    id: number;
-    name: string;
-    imageSrc: string;
-    imageAlt?: string;
+    id: string;
+    title: string;
+    previewImage: string;
     isPremium?: boolean;
-    isBookmarked?: boolean;
+    isFavorite?: boolean;
     price: number;
-    rating: TRating;
+    rating: number;
     type: PlaceType;
     location: IPoint;
     city: ICity;
@@ -30,7 +27,7 @@ export interface IReviewRatingProps {
 
 export interface IOfferListProps {
     offers: IPlaceCard[];
-    onListItemHover: (listItemName: number | null) => void;
+    onListItemHover: (listItemName: string | null) => void;
     listType: PlaceClassTypes;
 }
 
@@ -56,7 +53,7 @@ export interface IPoint {
     zoom?: number;
 }
 
-export type PlaceType = 'Apartment' | 'Room';
+export type PlaceType = 'apartment' | 'room' | 'house' | 'hpreviewImage: string;otel';
 
 export interface IMapProps {
     city: ICity;
@@ -65,7 +62,7 @@ export interface IMapProps {
 }
 
 export interface IRatingProps {
-    rating: TRating;
+    rating: number;
     objectType: string;
 }
 
@@ -108,5 +105,5 @@ export interface IReview {
     date: Date;
     user: User;
     comment: string;
-    rating: TRating;
+    rating: number;
 }

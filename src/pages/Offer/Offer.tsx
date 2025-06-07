@@ -2,16 +2,18 @@ import {ReviewsList} from '../../components/ReviewList/ReviewList.tsx';
 import {review} from '../../mocks/reviews.ts';
 import {cities} from '../../mocks/cities.ts';
 import {Map} from '../../components/Map.tsx';
-import {offers} from '../../mocks/offers.ts';
 import {OfferList} from '../../components/OfferList.tsx';
 import {useState} from 'react';
 import {IPlaceCard, PlaceClassTypes} from '../../types.ts';
+import {useAppSelector} from '../../store/hooks.ts';
 
 export const Offer = () => {
   const [selectedPlace, setSelectedPlace] = useState<IPlaceCard | undefined>(undefined);
 
-  const handleListItemHover = (placeItemId: number | null) => {
-    const currentPlace = offers.find((place) => place.id === placeItemId);
+  const currentOffers = useAppSelector((state) => state.offers);
+
+  const handleListItemHover = (placeItemId: string | null) => {
+    const currentPlace = currentOffers.find((place) => place.id === placeItemId);
     setSelectedPlace(currentPlace);
   };
 
@@ -174,14 +176,14 @@ export const Offer = () => {
             </div>
           </div>
           <section className="offer__map map">
-            <Map city={cities.Amsterdam} places={offers} selectedPlace={selectedPlace}/>
+            <Map city={cities.Amsterdam} places={currentOffers} selectedPlace={selectedPlace}/>
           </section>
         </section>
         <div className="container">
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
             <div className="near-places__list places__list">
-              <OfferList offers={offers} onListItemHover={handleListItemHover} listType={PlaceClassTypes.NearPlaces}/>
+              <OfferList offers={currentOffers} onListItemHover={handleListItemHover} listType={PlaceClassTypes.NearPlaces}/>
             </div>
           </section>
         </div>
