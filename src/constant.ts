@@ -5,7 +5,8 @@ export enum Actions {
   OFFERS = 'Offers',
   OFFER = 'Offer',
   FAVORITES = 'Favorites',
-  COMMENTS = 'Comments'
+  COMMENTS = 'Comments',
+  USER = 'User'
 }
 
 export const CITIES: Record<CityName, ICity> = {

@@ -1,5 +1,12 @@
 import { MouseEventHandler } from 'react';
 
+export enum AppRoute {
+    Main = '/',
+    Login = '/login',
+    Favorites = '/favorites',
+    Offer = '/offer/:id'
+  }
+
 export interface IPlaceCard {
     id: string;
     title: string;
@@ -92,13 +99,28 @@ export enum SortName {
     lowToHigh = 'lowToHigh',
     highToLow = 'highToLow',
     topRated = 'topRated',
-  }
+}
 
 type User = {
     name: string;
     avatarUrl: string;
     isPro: boolean;
 }
+
+export type IAuthData = {
+    email: string;
+    password: string;
+}
+
+export type IUserFull = User & {
+    email: string;
+    token: string;
+}
+
+export type IErrorMessage = {
+    type: string;
+    message: string;
+};
 
 export interface IReview {
     id: number;
