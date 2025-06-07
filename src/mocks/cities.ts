@@ -6,6 +6,7 @@ export const cities: Record<CityName, ICity> = {
     location: {
       latitude: 48.85661,
       longitude: 2.351499,
+      zoom: 10
     }
   },
   Cologne: {
@@ -13,13 +14,15 @@ export const cities: Record<CityName, ICity> = {
     location: {
       latitude: 50.938361,
       longitude: 6.959974,
+      zoom: 10
     }
   },
   Brussels: {
     name: 'Brussels',
     location: {
       latitude: 50.8476,
-      longitude: 4.3572
+      longitude: 4.3572,
+      zoom: 10
     }
   },
   Amsterdam: {
@@ -27,6 +30,7 @@ export const cities: Record<CityName, ICity> = {
     location: {
       latitude: 52.374,
       longitude: 4.89,
+      zoom: 10
     }
   },
   Hamburg: {
@@ -34,6 +38,7 @@ export const cities: Record<CityName, ICity> = {
     location: {
       latitude: 53.550341,
       longitude: 10.000654,
+      zoom: 10
     }
   },
   Dusseldorf: {
@@ -41,6 +46,7 @@ export const cities: Record<CityName, ICity> = {
     location: {
       latitude: 51.225402,
       longitude: 6.776314,
+      zoom: 10
     }
   },
 };
