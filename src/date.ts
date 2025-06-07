@@ -10,4 +10,3 @@ export const dateToMonthWordYear = (date: Date) =>
     year: 'numeric',
     month: 'long'
   }).format(date);
-  
